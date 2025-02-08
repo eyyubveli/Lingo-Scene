@@ -1,15 +1,8 @@
 import React, { useRef } from "react";
-
-interface VideoCompProps {
-  questionItems: string;
-  currentIndex: number;
-  togglePlay: (videoRef: React.RefObject<HTMLVideoElement>) => void;
-  setIsVideoEnded: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { VideoCompProps } from "../../types/QuestionTypes";
 
 const Videocomp: React.FC<VideoCompProps> = ({
   questionItems,
-  currentIndex,
   togglePlay,
   setIsVideoEnded,
 }) => {

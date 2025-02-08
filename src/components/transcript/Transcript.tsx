@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Question } from "../../types/QuestionTypes";
 import { showSubtitle } from "../../utils/TranscriptHelpers";
 import SubtitleButton from "./SubtitleButton";
@@ -15,7 +15,14 @@ type TranscriptProps = {
 
 const Transcript = ({ data }: TranscriptProps) => {
   const [title, setTitle] = useState<string>("");
-  const { timer, showButtons, setShowButtons, setTimer, stopTimer, startTimer } = useTimer({
+  const {
+    timer,
+    showButtons,
+    setShowButtons,
+    setTimer,
+    stopTimer,
+    startTimer,
+  } = useTimer({
     initialTime: 10,
     title,
     onTimeEnd: () => setShowButtons(false),

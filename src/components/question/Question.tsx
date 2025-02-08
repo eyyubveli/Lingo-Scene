@@ -1,6 +1,4 @@
-import React from 'react'
 import Video from '../video/Video'
-
 
 const Question = () => {
   return (

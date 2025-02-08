@@ -6,6 +6,12 @@ export interface Question {
   variants: string[];
   correctAnswer: number;
 }
+export interface VideoCompProps {
+  questionItems: string;
+  currentIndex: number;
+  togglePlay: (videoRef: React.RefObject<HTMLVideoElement>) => void;
+  setIsVideoEnded: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export type HandleProps = {
   isAnswered: boolean;
