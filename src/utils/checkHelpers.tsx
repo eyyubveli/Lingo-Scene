@@ -3,13 +3,13 @@ import { HandleProps, CombinedProps } from "../types/QuestionTypes";
 export const handleTimerExpire = ({
   isAnswered,
   setIsAnswered,
-  setPoint,
+  setPoints,
   count,
   stopTimer,
 }: HandleProps) => {
   if (!isAnswered) {
     setIsAnswered(true);
-    setPoint((prev) => prev - count);
+    setPoints((prev) => prev - count);
     stopTimer();
   }
 };
@@ -18,7 +18,7 @@ export const checkAnswer = ({
   isCorrect,
   isAnswered,
   setIsAnswered,
-  setPoint,
+  setPoints,
   count,
   stopTimer,
 }: CombinedProps) => {
@@ -27,5 +27,5 @@ export const checkAnswer = ({
   setIsAnswered(true);
   stopTimer();
 
-  setPoint((prev) => (isCorrect ? prev + count : prev - count));
+  setPoints((prev) => (isCorrect ? prev + count : prev - count));
 };

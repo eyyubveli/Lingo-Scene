@@ -8,15 +8,15 @@ export interface Question {
 }
 export interface VideoCompProps {
   questionItems: string;
-  currentIndex: number;
   togglePlay: (videoRef: React.RefObject<HTMLVideoElement>) => void;
   setIsVideoEnded: React.Dispatch<React.SetStateAction<boolean>>;
+  videoRef: React.RefObject<HTMLVideoElement>;
 }
 
 export type HandleProps = {
   isAnswered: boolean;
   setIsAnswered: React.Dispatch<React.SetStateAction<boolean>>;
-  setPoint: React.Dispatch<React.SetStateAction<number>>;
+  setPoints: React.Dispatch<React.SetStateAction<number>>;
   count: number;
   stopTimer: () => void;
 };
@@ -24,6 +24,15 @@ export type HandleProps = {
 type AnswerProps = {
   isCorrect: boolean;
 };
+
+
+export type NavigateProps = {
+  setIsVideoEnded: React.Dispatch<React.SetStateAction<boolean>>;
+  currentIndex: number;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+  questionItems: number;
+};
+
 
 export type CombinedProps = HandleProps & AnswerProps;
 

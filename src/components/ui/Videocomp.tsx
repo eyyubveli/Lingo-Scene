@@ -1,13 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import { VideoCompProps } from "../../types/QuestionTypes";
 
 const Videocomp: React.FC<VideoCompProps> = ({
   questionItems,
   togglePlay,
   setIsVideoEnded,
+  videoRef
 }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
   return (
     <div className="text-center flex justify-center mt-5 aspect-16/9 flex-col items-center max-w-[50rem] mx-auto relative">
       <video

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { VariantsListProps } from "../../types/QuestionTypes";
 import { questionItems } from "../items/Items";
 import { handleTimerExpire, checkAnswer } from "../../utils/checkHelpers";
+import { useScore } from "../../context/ScoreContext";
+import { useAnswer } from "../../context/AnswerContext";
 
 const VariantsList = ({
   variants,
@@ -9,16 +11,16 @@ const VariantsList = ({
   timer,
   stopTimer,
 }: VariantsListProps) => {
-  const [isAnswered, setIsAnswered] = useState<boolean>(false);
+  const { isAnswered, setIsAnswered } = useAnswer();
   const count = Math.floor(100 / questionItems.length);
-  const [point, setPoint] = useState<number>(0);
+  const { points, setPoints } = useScore();
 
   useEffect(() => {
     if (timer === 0) {
       handleTimerExpire({
         isAnswered,
         setIsAnswered,
-        setPoint,
+        setPoints,
         count,
         stopTimer,
       });
@@ -51,7 +53,7 @@ const VariantsList = ({
                 isCorrect,
                 isAnswered,
                 setIsAnswered,
-                setPoint,
+                setPoints,
                 count,
                 stopTimer,
               })
@@ -63,7 +65,7 @@ const VariantsList = ({
         );
       })}
       <span className="absolute text-red-500 bg-white px-2 py-2 rounded-md text-xl left-10 top-[-20rem]">
-        {point}
+        {points}
       </span>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { questionItems } from "../items/Items";
 import { togglePlay } from "../../utils/videoHelpers";
 import Transcript from "../transcript/Transcript";
@@ -23,9 +23,9 @@ const Video = () => {
     <div className="text-center flex justify-center mt-5 aspect-16/9  flex-col items-center max-w-[50rem] mx-auto relative">
       <Videocomp
         questionItems={questionItems[currentIndex].src}
-        currentIndex={currentIndex}
         togglePlay={togglePlay}
         setIsVideoEnded={setIsVideoEnded}
+        videoRef={videoRef}
       />
 
       <Navigate

@@ -11,9 +11,10 @@ import { useTimer } from "../../hooks/useTimer";
 
 type TranscriptProps = {
   data: Question;
+
 };
 
-const Transcript = ({ data }: TranscriptProps) => {
+const Transcript: React.FC<TranscriptProps> = ({ data }: TranscriptProps) => {
   const [title, setTitle] = useState<string>("");
   const {
     timer,
