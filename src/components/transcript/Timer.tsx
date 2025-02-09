@@ -4,7 +4,7 @@ type TimerProps = {
 
 const Timer = ({ time }: TimerProps) => {
   return (
-    <div className="absolute right-0 bg-white text-black py-2 rounded-md top-[-20rem] text-2xl px-4 mr-4">
+    <div className="fixed w-[3rem] right-[17rem] bg-white text-black py-2 rounded-md top-[2rem] text-2xl px-4 mr-2 text-center">
       {time}
     </div>
   );

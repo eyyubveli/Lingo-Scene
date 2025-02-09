@@ -17,7 +17,7 @@ const Navigate: React.FC<NavigateProps> = ({
     <MdNavigateNext
       size={50}
       color={isLastQuestion ? "#555" : "#fff"}
-      className={`navigate absolute top-[50%] right-[-2rem] bg-slate-900 rounded-md z-10 
+      className={`navigate fixed w-[3rem] top-[15rem] right-[16.5rem] bg-slate-900 rounded-md z-10 
       ${!isAnswered || isLastQuestion ? "hidden" : ""}`}
       cursor={isLastQuestion ? "not-allowed" : "pointer"}
       onClick={() => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { VariantsListProps } from "../../types/QuestionTypes";
 import { questionItems } from "../items/Items";
 import { handleTimerExpire, checkAnswer } from "../../utils/checkHelpers";
@@ -64,7 +64,7 @@ const VariantsList = ({
           </button>
         );
       })}
-      <span className="absolute text-red-500 bg-white px-2 py-2 rounded-md text-xl left-10 top-[-20rem]">
+      <span className="fixed top-[2.1rem] w-[3rem] text-red-500 bg-white px-2 py-2 rounded-md text-2xl left-[17rem] text-center">
         {points}
       </span>
     </div>
