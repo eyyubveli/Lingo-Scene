@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { changeQuestion } from "../../utils/videoHelpers";
 import { MdNavigateNext } from "react-icons/md";
 import { NavigateProps } from "../../types/QuestionTypes";
@@ -11,23 +11,20 @@ const Navigate: React.FC<NavigateProps> = ({
   questionItems,
 }) => {
   const { isAnswered, setIsAnswered } = useAnswer();
-
-  useEffect(() => {
-    console.log(isAnswered);
-  }, [isAnswered]);
+  const isLastQuestion = currentIndex === questionItems - 1;
 
   return (
     <MdNavigateNext
       size={50}
-      color="#fff"
-      className={` navigate absolute top-[50%] right-[-2rem] bg-slate-900 rounded-md z-10 ${
-        !isAnswered ? "hidden" : ""
-      }`}
-      cursor={"pointer"}
+      color={isLastQuestion ? "#555" : "#fff"}
+      className={`navigate absolute top-[50%] right-[-2rem] bg-slate-900 rounded-md z-10 
+      ${!isAnswered || isLastQuestion ? "hidden" : ""}`}
+      cursor={isLastQuestion ? "not-allowed" : "pointer"}
       onClick={() => {
+        if (isLastQuestion) return;
         setIsVideoEnded(false);
         changeQuestion("next", currentIndex, setCurrentIndex, questionItems);
-        setIsAnswered((prev) => !prev);
+        setIsAnswered(false);
       }}
     />
   );
